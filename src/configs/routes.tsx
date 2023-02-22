@@ -1,13 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import BaseLayout from '@/containers/BaseLayout';
 import { Route } from '@/types/common';
+import Homepage from '@/containers/HomePage';
 
 const ROUTES: Array<Route> = [
   {
     id: 'home',
     name: '首頁',
     path: '/',
-    element: <div>Home</div>
+    element: <Homepage />
   },
   {
     id: 'products',
