@@ -6,3 +6,11 @@ export type Route = {
   path: string;
   element: ReactNode;
 };
+
+export type Product = {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  productImgSrc: string;
+};

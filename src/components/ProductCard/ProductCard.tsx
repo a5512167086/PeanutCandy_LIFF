@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Card, { CardProps } from 'react-bootstrap/Card';
 import { ProductCardProps } from './productCard.type';
 
-function ProductCard({ cardTitle, cardDescription, cardSrc, buttonText }: ProductCardProps) {
+function ProductCard({ cardTitle, cardDescription, cardSrc, buttonText, ...props }: ProductCardProps & CardProps) {
   return (
-    <Card>
+    <Card {...props}>
       <Card.Img variant="top" src={cardSrc} />
       <Card.Body>
         <Card.Title>{cardTitle}</Card.Title>
