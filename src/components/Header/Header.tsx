@@ -13,22 +13,19 @@ const Header = ({ ...props }: NavbarProps) => {
   }, [homeRoute]);
 
   return (
-    <Navbar expand="lg" bg="white" variant="white" {...props}>
+    <Navbar collapseOnSelect expand="lg" bg="white" variant="white" {...props}>
       <Container>
-        <LinkContainer to={'/'}>
-          <Navbar.Brand>Test</Navbar.Brand>
+        <LinkContainer to={homeRoute}>
+          <Navbar.Brand>阿美姐手工花生糖</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            {ROUTES.map(
-              (route) =>
-                route.id !== 'home' && (
-                  <LinkContainer key={route.id} to={route.path}>
-                    <Nav.Link>{route.id.toUpperCase()}</Nav.Link>
-                  </LinkContainer>
-                )
-            )}
+            {ROUTES.map((route) => (
+              <LinkContainer key={route.id} to={route.path}>
+                <Nav.Link>{route.name}</Nav.Link>
+              </LinkContainer>
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Container>

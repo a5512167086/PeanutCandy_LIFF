@@ -2,19 +2,20 @@ import { createBrowserRouter } from 'react-router-dom';
 import BaseLayout from '@/containers/BaseLayout';
 import { Route } from '@/types/common';
 import Homepage from '@/containers/HomePage';
+import CheckoutPage from '@/containers/CheckoutPage';
 
 const ROUTES: Array<Route> = [
   {
     id: 'home',
-    name: '首頁',
+    name: '商品清單',
     path: '/',
     element: <Homepage />
   },
   {
-    id: 'products',
-    name: '產品',
-    path: '/products',
-    element: <div>Tesd</div>
+    id: 'checkout',
+    name: '下單訂購',
+    path: '/checkout',
+    element: <CheckoutPage />
   }
 ];
 
