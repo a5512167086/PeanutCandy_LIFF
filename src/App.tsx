@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import liff from '@line/liff';
 import '@/styles/App.css';
+import { router } from './configs/routes';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -13,14 +15,7 @@ function App() {
       });
   });
 
-  return (
-    <div className="App">
-      <h1>create-liff-app</h1>
-      <a href="https://developers.line.biz/ja/docs/liff/" target="_blank" rel="noreferrer">
-        LIFF Documentation
-      </a>
-    </div>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
