@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import { Outlet } from 'react-router-dom';
 
 const BaseLayout = () => (
-  <Container>
+  <Container className="px-1">
     <Header />
     <Outlet />
   </Container>

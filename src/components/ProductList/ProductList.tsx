@@ -93,7 +93,7 @@ const ProductList = () => {
       </Row>
       <CustomModal
         show={confirmModalShow}
-        onHide={handleConfirmModalHide}
+        handleHide={handleConfirmModalHide}
         modalTtile={`正在將 ${currentConfirmProduct.productName} 加入購物車`}
         modalContent={'請輸入要加到購物車的商品數量'}
         modalPrice={currentConfirmProduct.productPrice}

@@ -3,7 +3,7 @@ import ProductList from '@/components/ProductList';
 import { Container } from 'react-bootstrap';
 
 const Homepage = () => (
-  <Container>
+  <Container className="px-1">
     <CustomTab />
     <div className="my-3">
       <ProductList />

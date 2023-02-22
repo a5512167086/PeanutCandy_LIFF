@@ -3,4 +3,5 @@ export type CustomModalProps = {
   modalPrice: number;
   modalContent: string;
   buttonText: string;
+  handleHide: () => void;
 };
