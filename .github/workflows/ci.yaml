@@ -9,13 +9,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install Lighthouse CI
-        run: yarn install && yarn global add @lhci/cli@0.8.x
+      - name: Install
+        run: npm install && npm i -g http-server @lhci/cli
       - name: Build Project
-        run: yarn build
-      - name: Start Preview Server
-        run: yarn preview
+        run: npm run build
       - name: Run Lighthouse CI
         run: lhci autorun
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
