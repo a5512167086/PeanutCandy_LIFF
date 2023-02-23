@@ -4,7 +4,8 @@ import '@/styles/App.css';
 import { router } from './configs/routes';
 import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '@/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from '@/store';
 
 function App() {
   useEffect(() => {
@@ -19,7 +20,9 @@ function App() {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={router}></RouterProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router}></RouterProvider>
+      </PersistGate>
     </Provider>
   );
 }
