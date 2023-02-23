@@ -1,27 +1,25 @@
 import { CartProduct } from '@/types/common';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
-const initialState: Array<CartProduct> = [
-  { id: 1, name: '', price: 123, count: 1, description: '', productImgSrc: '' }
-];
+const initialState: Array<CartProduct> = [];
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state) => {
-      state.push({
-        id: 0,
-        name: '',
-        price: 0,
-        count: 0,
-        description: '',
-        productImgSrc: ''
-      });
+    addToCart: (state, action) => {
+      const addToCartProduct = action.payload;
+      const existedProductIndex = current(state).findIndex((product) => product.id === addToCartProduct.id);
+      if (existedProductIndex > -1) {
+        state[existedProductIndex].count += addToCartProduct.count;
+        return;
+      }
+
+      state.push(addToCartProduct);
     },
     clearCart: () => []
   }
 });
 
-export const { clearCart } = cartSlice.actions;
+export const { addToCart, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

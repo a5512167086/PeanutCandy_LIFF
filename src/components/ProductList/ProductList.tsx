@@ -1,4 +1,4 @@
-import { Product } from '@/types/common';
+import { CurrentProduct, Product } from '@/types/common';
 import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import CustomModal from '../CustomModal';
@@ -65,17 +65,16 @@ const tmpProduct: Array<Product> = [
 
 const ProductList = () => {
   const [confirmModalShow, setConfirmModalShow] = useState(false);
-  const [currentConfirmProduct, setCurrentConfirmProduct] = useState({
-    productName: '',
-    productPrice: 0
+  const [currentConfirmProduct, setcurrentConfirmProduct] = useState<CurrentProduct>({
+    id: 0,
+    name: '',
+    price: 0,
+    description: ''
   });
 
-  const handleProductClick = (productName: string, productPrice: number) => {
+  const handleProductClick = (product: Product) => {
     setConfirmModalShow(true);
-    setCurrentConfirmProduct({
-      productName: productName,
-      productPrice: productPrice
-    });
+    setcurrentConfirmProduct(product);
   };
 
   const handleConfirmModalHide = () => {
@@ -93,7 +92,9 @@ const ProductList = () => {
               cardPrice={product.price}
               cardSrc={product.productImgSrc}
               buttonText={'購買'}
-              handleClick={handleProductClick}
+              handleClick={() => {
+                handleProductClick(product);
+              }}
             />
           </Col>
         ))}
@@ -101,9 +102,10 @@ const ProductList = () => {
       <CustomModal
         show={confirmModalShow}
         handleHide={handleConfirmModalHide}
-        modalTtile={`正在將 ${currentConfirmProduct.productName} 加入購物車`}
-        modalContent={'請輸入要加到購物車的商品數量'}
-        modalPrice={currentConfirmProduct.productPrice}
+        productId={currentConfirmProduct.id}
+        productName={currentConfirmProduct.name}
+        productPrice={currentConfirmProduct.price}
+        productDesc={currentConfirmProduct.description}
         buttonText={'確認'}
       />
     </Container>

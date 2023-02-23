@@ -15,11 +15,17 @@ export type Product = {
   productImgSrc: string;
 };
 
+export type CurrentProduct = {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+};
+
 export type CartProduct = {
   id: number;
   name: string;
   price: number;
   count: number;
   description: string;
-  productImgSrc: string;
 };

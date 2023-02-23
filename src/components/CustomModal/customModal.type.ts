@@ -1,7 +1,8 @@
 export type CustomModalProps = {
-  modalTtile: string;
-  modalPrice: number;
-  modalContent: string;
+  productId: number;
+  productName: string;
+  productPrice: number;
+  productDesc: string;
   buttonText: string;
   handleHide: () => void;
 };
