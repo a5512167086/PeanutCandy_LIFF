@@ -12,7 +12,9 @@ jobs:
       - name: Install Lighthouse CI
         run: yarn install && yarn global add @lhci/cli@0.8.x
       - name: Build Project
-        run: yarn run build
+        run: yarn build
+      - name: Start Preview Server
+        run: yarn preview
       - name: Run Lighthouse CI
         run: lhci autorun
         env:
