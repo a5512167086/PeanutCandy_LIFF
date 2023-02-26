@@ -22,6 +22,12 @@ export type CurrentProduct = {
   description: string;
 };
 
+export type EditProduct = {
+  productIndex: number;
+  productName: string;
+  productCount: number;
+};
+
 export type CartProduct = {
   id: number;
   name: string;
